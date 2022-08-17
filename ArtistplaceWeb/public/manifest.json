@@ -1,0 +1,8 @@
+{
+  "short_name": "Artistplace",
+  "name": "NFT+more blockchain application",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

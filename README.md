@@ -1,4 +1,4 @@
-# Full Stack NFT Marketplace Application
+# Artistplace - Tip people, trade NFTs, play music, send Ether.
 
 
 This repo contains the demo code from the NFT marketplace application discussed on the blogs:
@@ -6,6 +6,8 @@ This repo contains the demo code from the NFT marketplace application discussed 
 - https://aws.amazon.com/blogs/database/part-1-develop-a-full-stack-serverless-nft-application-with-amazon-managed-blockchain/
 
 - https://aws.amazon.com/blogs/database/part-2-develop-a-full-stack-serverless-nft-application-with-amazon-managed-blockchain/ 
+
+- https://quip-amazon.com/WseaA7medi4e/Blog-Posts
 
 ## Prerequisites
 
@@ -19,25 +21,25 @@ Clone the repository and run the following commands to setup the code ($ is not 
 
 ```console
 $ npm install -g ganache-cli truffle
-$ cd ShareToWinContract
+$ cd ArtistplaceContract
 $ npm install
-$ ../cd ShareToWinRestApi
+$ ../cd ArtistplaceRestApi
 $ npm install
-$ ../cd ShareToWinWeb
+$ ../cd ArtistplaceWeb
 $ npm install
-$ aws dynamodb create-table --table-name ShareToWin --attribute-definitions AttributeName=AssetID,AttributeType=N --key-schema AttributeName=AssetID,KeyType=HASH --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 
+$ aws dynamodb create-table --table-name Project --attribute-definitions AttributeName=AssetID,AttributeType=N --key-schema AttributeName=AssetID,KeyType=HASH --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 
 ```
 
 ## Run
 
 Open four terminal windows. 
 
-1. On the first terminal window make sure you are in the ShareToWinContract folder. Run the following command to start Ganache development server by running the ganache-cli
+1. On the first terminal window make sure you are in the ArtistplaceContract folder. Run the following command to start Ganache development server by running the ganache-cli
 
 ```console
-npx ganache-cli  --acctKeys ../ShareToWinRestApi/ethaccounts.json
+npx ganache-cli  --acctKeys ../ArtistplaceRestApi/ethaccounts.json
 ```
-2. On the second terminal window make sure you are in the ShareToWinContract folder. Run the following command to start truffle console.
+2. On the second terminal window make sure you are in the ArtistplaceContract folder. Run the following command to start truffle console.
 
 ```console
 truffle console --network development
@@ -64,7 +66,7 @@ The migrate command will deploy the smart contract on ganache development networ
     value sent:          0 ETH
     total cost:          0.08193354 ETH
 
-3. On the third terminal window make sure you are in the ShareToWinRestApi folder. Copy the contract address that is displayed on the second terminal when you ran the migrate truffle command into the envExport.sh file and run the following commands
+3. On the third terminal window make sure you are in the ArtistplaceRestApi folder. Copy the contract address that is displayed on the second terminal when you ran the migrate truffle command into the envExport.sh file and run the following commands
 
 ```console
 source envExport.sh
@@ -73,7 +75,7 @@ npx nodemon --delay 1000ms index.js
 
 This will start the express web server and listen on port 4080
 
-4. On the fourth window make sure you are in the ShareToWinWeb folder. Start the react web front end by entering the command
+4. On the fourth window make sure you are in the ArtistplaceWeb folder. Start the react web front end by entering the command
 
 ```console
 npm run start
